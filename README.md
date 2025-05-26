@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Implemented Solution Explanation
 # Task no 1
 ```
@@ -211,3 +212,6 @@ While YOLOv8 Nano performs well, future work may explore the use of **EfficientN
 - [EfficientNet Paper](https://arxiv.org/abs/1905.11946)
 - [EfficientDet PyTorch Implementation](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)
 
+=======
+# DSA
+>>>>>>> cc63688 (Read Me Added)
