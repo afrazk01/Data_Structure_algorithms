@@ -1,0 +1,57 @@
+-- Problem 2: Find customers who bought ALL products
+-- ================================================
+
+-- SOLUTION 1: Using GROUP BY and HAVING (Recommended)
+-- This is the most efficient and readable solution
+SELECT customer_id
+FROM Customer
+GROUP BY customer_id
+HAVING COUNT(DISTINCT product_key) = (
+    SELECT COUNT(*)
+    FROM Product
+);
+
+-- SOLUTION 2: Using NOT EXISTS (Alternative approach)
+-- This solution checks if there's no product that the customer hasn't bought
+SELECT DISTINCT c.customer_id
+FROM Customer c
+WHERE NOT EXISTS (
+    SELECT p.product_key
+    FROM Product p
+    WHERE p.product_key NOT IN (
+        SELECT c2.product_key
+        FROM Customer c2
+        WHERE c2.customer_id = c.customer_id
+        AND c2.product_key IS NOT NULL
+    )
+);
+
+-- SOLUTION 3: Using INNER JOIN and GROUP BY (Another alternative)
+-- This solution joins Customer with Product and groups by customer
+SELECT c.customer_id
+FROM Customer c
+INNER JOIN Product p ON c.product_key = p.product_key
+GROUP BY c.customer_id
+HAVING COUNT(DISTINCT c.product_key) = (
+    SELECT COUNT(*)
+    FROM Product
+);
+
+-- SOLUTION 4: Using window functions (Advanced approach)
+-- This solution uses analytical functions for more complex scenarios
+WITH customer_product_counts AS (
+    SELECT 
+        customer_id,
+        COUNT(DISTINCT product_key) as products_bought
+    FROM Customer
+    GROUP BY customer_id
+),
+total_products AS (
+    SELECT COUNT(*) as total_count
+    FROM Product
+)
+SELECT customer_id
+FROM customer_product_counts cpc
+CROSS JOIN total_products tp
+WHERE cpc.products_bought = tp.total_count;
+
