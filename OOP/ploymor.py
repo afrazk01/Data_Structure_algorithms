@@ -3,12 +3,19 @@
 
 class Shape:
 
-    def area(self,radius):
-        return 3.14 * radius * radius
+    # def area(self,radius):
+    #     return 3.14 * radius * radius
     
-    def area(self,l,b):
-        return l * b
-    
+    # def area(self,l,b):
+    #     return l * b
+    # The above piece of code does not work in python function overloading but in other languages it work 
+    # however the same can be achieved through a single function how?
+
+    def area(self,a,b=0):
+        if b == 0:
+            return 3.14 * a * a
+        else:
+            return a * b
 
 class XYZ:
 
