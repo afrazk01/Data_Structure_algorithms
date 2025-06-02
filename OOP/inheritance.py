@@ -9,8 +9,12 @@ class Phone:
         print("inside phone buy")      
 
 class Smartphone(Phone):
+    def __init__(self, name, price, camera,):
+        super().__init__(name, price, camera)
     
     def buy(self):
+        print("now  i will call parent method via super")
+        super().buy()
         print("inside smartphone buy")
 
 
