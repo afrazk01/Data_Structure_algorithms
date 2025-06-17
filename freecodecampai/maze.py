@@ -20,7 +20,7 @@ class StackFrontier:
         return len(self.frontier) == 0
     
     def remove(self):
-        if self.empty(self):
+        if self.empty():
             raise Exception ("empty frontier")
         else:
             node = self.frontier[-1]
@@ -114,7 +114,8 @@ class Maze:
 
     def solve(self):
         start = Node(state=self.start, parent=None, action=None)
-        frontier = QueueFrontier()
+        print("Start:", self.start)
+        frontier = StackFrontier()
         frontier.add(start)
         explored = set()
 
