@@ -142,4 +142,8 @@ class Maze:
                     child = Node(state=state, parent=node, action=action)
                     frontier.add(child)
 
-    
+
+if __name__ == "__main__":
+    maze = Maze("maze.txt")
+    maze.solve()
+    maze.print()
