@@ -9,6 +9,9 @@ def custom_len(input_str):
         return "invalid type"
     return count
 
+
+# check if the given list has triplet
+
 if __name__ == "__main__":
     var_a = 2
     print(custom_len(var_a))
