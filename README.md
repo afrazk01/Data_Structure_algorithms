@@ -1,4 +1,4 @@
 # DSA
 ## Personal DSA Repo
-This Repository contain problems as comments and then code of that problem 
+This repository contains Practice Problems code , Interview Preparation code , Free time Problem solving code
 
