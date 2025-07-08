@@ -1,6 +1,6 @@
 # function calling itself by a condition once reached condition it is completed is recursion two types head and tail
 # head recursion (print(hello world four times))
-
+# using global variable not a good approach though
 
 def head_rec():
     global count
